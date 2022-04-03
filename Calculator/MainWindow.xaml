@@ -1,0 +1,49 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" SizeToContent="WidthAndHeight"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+    <Window.Resources>
+        <GridLength x:Key="CellWidth">50</GridLength>
+        <GridLength x:Key="CellHeight">50</GridLength>
+        <Thickness x:Key="CellMargin">2</Thickness>
+        <System:Double x:Key="CellTextSize">16</System:Double>
+    </Window.Resources>
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{DynamicResource CellWidth}" />
+            <ColumnDefinition Width="{DynamicResource CellWidth}" />
+            <ColumnDefinition Width="{DynamicResource CellWidth}" />
+            <ColumnDefinition Width="{DynamicResource CellWidth}" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="{DynamicResource CellHeight}" />
+            <RowDefinition Height="{DynamicResource CellHeight}" />
+            <RowDefinition Height="{DynamicResource CellHeight}" />
+            <RowDefinition Height="{DynamicResource CellHeight}" />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="CalculationsTextBox" FontSize="{DynamicResource CellTextSize}" Grid.Row="0" Grid.ColumnSpan="4" TextAlignment="Right"></TextBox>
+        <Button x:Name="Button7" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="1" Grid.Column="0" Click="ButtonNumber_Click">7</Button>
+        <Button x:Name="Button8" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="1" Grid.Column="1" Click="ButtonNumber_Click">8</Button>
+        <Button x:Name="Button9" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="1" Grid.Column="2" Click="ButtonNumber_Click">9</Button>
+        <Button x:Name="ButtonDivide" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="1" Grid.Column="3" Click="ButtonOperation_Click">/</Button>
+        <Button x:Name="Button4" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="2" Grid.Column="0" Click="ButtonNumber_Click">4</Button>
+        <Button x:Name="Button5" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="2" Grid.Column="1" Click="ButtonNumber_Click">5</Button>
+        <Button x:Name="Button6" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="2" Grid.Column="2" Click="ButtonNumber_Click">6</Button>
+        <Button x:Name="ButtonMultiply" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="2" Grid.Column="3" Click="ButtonOperation_Click">*</Button>
+        <Button x:Name="Button1" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="3" Grid.Column="0" Click="ButtonNumber_Click">1</Button>
+        <Button x:Name="Button2" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="3" Grid.Column="1" Click="ButtonNumber_Click">2</Button>
+        <Button x:Name="Button3" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="3" Grid.Column="2" Click="ButtonNumber_Click">3</Button>
+        <Button x:Name="ButtonSubtract" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="3" Grid.Column="3" Click="ButtonOperation_Click">-</Button>
+        <Button x:Name="Button0" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="4" Grid.Column="0" Click="ButtonNumber_Click">0</Button>
+        <Button x:Name="ButtonClear" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="4" Grid.Column="1" Click="ButtonClear_Click">C</Button>
+        <Button x:Name="ButtonEquals" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="4" Grid.Column="2" Click="ButtonEquals_Click">=</Button>
+        <Button x:Name="ButtonAdd" FontSize="{DynamicResource CellTextSize}" Margin="{DynamicResource CellMargin}" Grid.Row="4" Grid.Column="3" Click="ButtonOperation_Click">+</Button>
+    </Grid>
+</Window>
