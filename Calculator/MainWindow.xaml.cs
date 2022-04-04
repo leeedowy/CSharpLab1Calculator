@@ -48,8 +48,7 @@ namespace Calculator
 
         private void ButtonEquals_Click(object sender, RoutedEventArgs e)
         {
-            _expression.Evaluate();
-            _expression.EqualsClicked = true;
+            _expression.Evaluate(true);
             DisplayExpression(_expression);
         }
 

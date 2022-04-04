@@ -34,8 +34,11 @@ namespace Calculator
             }
             else
             {
-                _secondPart = _secondPart == 0 ?
-                    Convert.ToDecimal(digit) : Convert.ToDecimal(Convert.ToString(_secondPart) + digit);
+                if (_operator != Operators.Division || digit != "0")
+                {
+                    _secondPart = _secondPart == 0 ?
+                        Convert.ToDecimal(digit) : Convert.ToDecimal(Convert.ToString(_secondPart) + digit);
+                }
             }
         }
 
@@ -46,7 +49,7 @@ namespace Calculator
                 _equalsClicked = false;
                 if (_secondPart != null)
                 {
-                    Evaluate();
+                    Evaluate(false);
                 }
                 _operator = (Operators?)char.Parse(oparator);
                 _previousOperation = null;
@@ -63,12 +66,13 @@ namespace Calculator
             _equalsClicked = false;
         }
 
-        public void Evaluate()
+        public void Evaluate(bool equalsClicked)
         {
             if ((_operator != null && _secondPart != null) || _previousOperation != null)
             {
                 Operators? currentOperator = _equalsClicked ? _previousOperation : _operator;
                 decimal? currentSecondPart = _equalsClicked ? _previousSecondPart : _secondPart;
+
                 switch (currentOperator)
                 {
                     case Operators.Addition:
@@ -91,6 +95,7 @@ namespace Calculator
                 _firstPart = Math.Round((decimal)_firstPart, 10).Normalize();
                 _previousSecondPart = currentSecondPart;
                 _secondPart = null;
+                _equalsClicked = equalsClicked;
             }
         }
 
